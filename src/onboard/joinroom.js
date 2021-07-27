@@ -55,7 +55,7 @@ class JoinRoom extends React.Component {
                             this.setState({
                                 didGetUserName: true
                             })
-                        }}>Submit</button>
+                        }}>Iniciar</button>
                 </div>
             }
             </React.Fragment>)
