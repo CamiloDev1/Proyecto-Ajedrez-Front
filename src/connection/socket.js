@@ -1,6 +1,6 @@
 import io from 'socket.io-client'
-const URL = 'https://localhost:3000'
-
+//const URL = 'https://localhost:3000'
+const URL = 'https://ajedrez-front.herokuapp.com/'
 //const URL = 'https://multiplayer-chess-game-app.herokuapp.com/' 
 
 const socket = io(URL)
