@@ -1,3 +1,4 @@
+import img from '../assets/ajedrez.png'
 import swal from 'sweetalert';
 import React from 'react'
 import Game from '../model/chess'
@@ -306,21 +307,27 @@ const ChessGameWrapper = (props) => {
     return (
       <React.Fragment>
         {opponentDidJoinTheGame ? (
-          <div style={{backgroundColor: "darkred",color:"yellow", textAlign: "center", marginTop: "100px", width: "120px"}}>
-            <h4> Opponent: {opponentUserName} </h4>
-            <div style={{ display: "flex" }}>
+          <div style={{backgroundColor: "darkred",color:"yellow", textAlign: "center", marginTop: "100px"}}>
+            <h4> ---------------------------Oponente: {opponentUserName} --------------------------------- </h4>
+              <h4> ---------------------------Tu jugador: {props.myUserName} --------------------------------- </h4>
+
+            <div style={{ display: "flex", backgroundColor: "darkred"}}>
               <ChessGame style={{backgroundColor: "darkred"}}
                 playAudio={play}
                 gameId={gameid}
                 color={color.didRedirect}
 
               />
+                <div style={{float: "right"}}>
+                    <img src={img} />
+                </div>
+
             </div>
-            <h4> You: {props.myUserName} </h4>
+
           </div>
         ) : gameSessionDoesNotExist ? (
           <div>
-            <h1 style={{ textAlign: "center", marginTop: "200px" }}> :( </h1>
+            <h1 style={{ textAlign: "center", marginTop: "200px", backgroundColor: "darkred" }}> :( </h1>
           </div>
         ) : (
           <div style={{backgroundColor: "darkred"}}>

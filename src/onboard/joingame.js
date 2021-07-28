@@ -20,7 +20,8 @@ const JoinGameRoom = (gameid, userName, isCreator) => {
     const idData = {
         gameId : gameid,
         userName : userName,
-        isCreator: isCreator
+        isCreator: isCreator,
+
     }
     socket.emit("playerJoinGame", idData)
 }
@@ -33,6 +34,7 @@ const JoinGame = (props) => {
      */
     const { gameid } = useParams()
     JoinGameRoom(gameid, props.userName, props.isCreator)
+
     return <div style={{backgroundColor: "darkred",color:"yellow", textAlign: "center", marginTop: "100px"}}>
 
         <h1>Hola {props.userName}, vamos a jugar</h1>
