@@ -6,28 +6,28 @@ import Onboard from './onboard/onboard'
 import JoinGame from './onboard/joingame'
 import ChessGame from './chess/ui/chessgame'
 /*
- *  Frontend flow: 
+ *  Frontend:
+ *
+ * 1. El usuario primero abre esta aplicación en el explorador.
+ * 2. Aparece una pantalla que pide al usuario que envíe a su amigo la URL del juego para iniciar el juego.
+ * 3. El usuario envía a su amigo su URL del juego
+ * 4. El usuario hace clic en el botón 'inicio' y espera a que el otro jugador se una.
+ * 5. Tan pronto como el otro jugador se une, el juego comienza.
  * 
- * 1. user first opens this app in the browser. 
- * 2. a screen appears asking the user to send their friend their game URL to start the game.
- * 3. the user sends their friend their game URL
- * 4. the user clicks the 'start' button and waits for the other player to join. 
- * 5. As soon as the other player joins, the game starts. 
  * 
- * 
- * Other player flow:
- * 1. user gets the link sent by their friend
- * 2. user clicks on the link and it redirects to their game. If the 'host' has not yet 
- *    clicked the 'start' button yet, the user will wait for when the host clicks the start button.  
- *    If the host decides to leave before they click on the "start" button, the user will be notified
- *    that the host has ended the session. 
- * 3. Once the host clicks the start button or the start button was already clicked on
- *    before, that's when the game starts. 
+ * Flujo de otros jugadores:
+ * 1. el usuario obtiene el vínculo enviado por su amigo
+ * 2. usuario hace clic en el enlace y redirige a su juego. Si el 'host' aún no lo ha hecho
+ * ha hecho clic en el botón 'inicio' todavía, el usuario esperará cuando el host haga clic en el botón de inicio.
+ * Si el host decide irse antes de hacer clic en el botón "inicio", el usuario será notificado
+ * que el host ha finalizado la sesión.
+ * 3. Una vez que el host hace clic en el botón de inicio o el botón de inicio ya se hizo clic en
+ * antes, es cuando comienza el juego.
  * Onboarding screen =====> Game start. 
  * 
- * Every time a user opens our site from the '/' path, a new game instance is automatically created
- * on the back-end. We should generate the uuid on the frontend, send the request with the uuid
- * as a part of the body of the request. If any player leaves, then the other player wins automatically.  
+ * Cada vez que un usuario abre nuestro sitio desde la ruta '/', se crea automáticamente una nueva instancia de juego
+ * en el back-end. Debemos generar el uuid en el frontend, enviar la solicitud con el uuid
+ * como parte del cuerpo de la solicitud. Si algún jugador se va, entonces el otro jugador gana automáticamente.
  * 
  */
 

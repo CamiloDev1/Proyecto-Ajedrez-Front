@@ -3,22 +3,22 @@ class Square {
         this.x = x // Int 0 < x < 7
         this.y = y // Int 0 < y < 7 
         this.canvasCoord = canvasCoord
-        this.pieceOnThisSquare = pieceOnThisSquare // ChessPiece || null
+        this.pieceOnThisSquare = pieceOnThisSquare
     }
 
     setPiece(newPiece) {
         if (newPiece === null && this.pieceOnThisSquare === null) {
             return
         } else if (newPiece === null) {
-            // case where the function caller wants to remove the piece that is on this square. 
+            // caso donde el llamador de la función desea quitar la pieza que está en este cuadrado.
             this.pieceOnThisSquare.setSquare(undefined)
             this.pieceOnThisSquare = null
         } else if (this.pieceOnThisSquare === null) {
-            // case where the function caller wants assign a new piece on this square
+            // Caso en el que el llamador de función desea asignar una nueva pieza en este cuadrado
             this.pieceOnThisSquare = newPiece
             newPiece.setSquare(this)
         } else if (this.getPieceIdOnThisSquare() != newPiece.id && this.pieceOnThisSquare.color != newPiece.color) {
-            // case where the function caller wants to change the piece on this square. (only different color allowed)
+            // caso donde el llamador de la función desea cambiar la pieza en este cuadrado. (sólo se permite un color diferente)
             console.log("capture!")
             this.pieceOnThisSquare = newPiece
             newPiece.setSquare(this)

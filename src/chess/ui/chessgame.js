@@ -18,7 +18,7 @@ class ChessGame extends React.Component {
 
     state = {
         gameState: new Game(this.props.color),
-        draggedPieceTargetId: "", // empty string means no piece is being dragged
+        draggedPieceTargetId: "", // Una cadena vacía significa que no se está arrastrando ninguna pieza
         playerTurnToMoveIsWhite: true,
         whiteKingInCheck: false, 
         blackKingInCheck: false
@@ -30,8 +30,6 @@ class ChessGame extends React.Component {
         console.log(this.props.opponentUserName)
         // register event listeners
         socket.on('opponent move', move => {
-            // move == [pieceId, finalPosition]
-            // console.log("opponenet's move: " + move.selectedId + ", " + move.finalPosition)
             if (move.playerColorThatJustMovedIsWhite !== this.props.color) {
                 this.movePiece(move.selectedId, move.finalPosition, this.state.gameState, false)
                 this.setState({
@@ -50,9 +48,9 @@ class ChessGame extends React.Component {
 
     movePiece = (selectedId, finalPosition, currentGame, isMyMove) => {
         /**
-         * "update" is the connection between the model and the UI. 
-         * This could also be an HTTP request and the "update" could be the server response.
-         * (model is hosted on the server instead of the browser)
+         * "update" es la conexión entre el modelo y la interfaz de usuario.
+         * Esto también podría ser una solicitud HTTP y la "actualización" podría ser la respuesta del servidor.
+         * (el modelo se aloja en el servidor en lugar del explorador)
          */
         var whiteKingInCheck = false 
         var blackKingInCheck = false
@@ -61,14 +59,13 @@ class ChessGame extends React.Component {
         const update = currentGame.movePiece(selectedId, finalPosition, isMyMove)
         
         if (update === "moved in the same position.") {
-            this.revertToPreviousState(selectedId) // pass in selected ID to identify the piece that messed up
+            this.revertToPreviousState(selectedId) //pasar el ID seleccionado para identificar la pieza que se estropeó
             return
         } else if (update === "user tried to capture their own piece") {
             this.revertToPreviousState(selectedId) 
             return
         } else if (update === "b is in check" || update === "w is in check") { 
-            // change the fill of the enemy king or your king based on which side is in check. 
-            // play a sound or something
+            // cambiar el relleno del rey enemigo o su rey en función de qué lado está en jaque.
             if (update[0] === "b") {
                 blackKingInCheck = true
             } else {
@@ -83,9 +80,9 @@ class ChessGame extends React.Component {
         } else if (update === "invalid move") {
             this.revertToPreviousState(selectedId) 
             return
-        } 
+        }
 
-        // let the server and the other client know your move
+        //Deje que el servidor y el otro cliente conozcan su movimiento
         if (isMyMove) {
             socket.emit('new move', {
                 nextPlayerColorToMove: !this.state.gameState.thisPlayersColorIsWhite,
@@ -97,9 +94,9 @@ class ChessGame extends React.Component {
         }
         
 
-        this.props.playAudio()   
-        
-        // sets the new game state. 
+        this.props.playAudio()
+
+        //establece el nuevo estado del juego.
         this.setState({
             draggedPieceTargetId: "",
             gameState: currentGame,
@@ -126,7 +123,7 @@ class ChessGame extends React.Component {
 
     revertToPreviousState = (selectedId) => {
         /**
-         * Should update the UI to what the board looked like before. 
+         * Debe actualizar la interfaz de usuario a lo que el tablero parecía antes.
          */
         const oldGS = this.state.gameState
         const oldBoard = oldGS.getBoard()
@@ -144,7 +141,7 @@ class ChessGame extends React.Component {
             }
         }
 
-        // temporarily remove the piece that was just moved
+        // Quitar temporalmente la pieza que se acaba de mover
         tmpGS.setBoard(tmpBoard)
 
         this.setState({
@@ -159,16 +156,13 @@ class ChessGame extends React.Component {
 
  
     inferCoord = (x, y, chessBoard) => {
-        // console.log("actual mouse coordinates: " + x + ", " + y)
-        /*
-            Should give the closest estimate for new position. 
-        */
+
         var hashmap = {}
         var shortestDistance = Infinity
         for (var i = 0; i < 8; i++) {
             for (var j = 0; j < 8; j++) {
                 const canvasCoord = chessBoard[i][j].getCanvasCoord()
-                // calculate distance
+                // Calcular distancia
                 const delta_x = canvasCoord[0] - x 
                 const delta_y = canvasCoord[1] - y
                 const newDistance = Math.sqrt(delta_x**2 + delta_y**2)
@@ -183,13 +177,7 @@ class ChessGame extends React.Component {
     }
    
     render() {
-        // console.log(this.state.gameState.getBoard())
-       //  console.log("it's white's move this time: " + this.state.playerTurnToMoveIsWhite)
-        /*
-            Look at the current game state in the model and populate the UI accordingly
-        */
-        // console.log(this.state.gameState.getBoard())
-        
+
         return (
         <React.Fragment>
         <div style = {{
@@ -233,18 +221,9 @@ class ChessGame extends React.Component {
 
 
 const ChessGameWrapper = (props) => {
-    /**
-     * player 1
-     *      - socketId 1
-     *      - socketId 2 ???
-     * player 2
-     *      - socketId 2
-     *      - socketId 1
-     */
 
 
-
-    // get the gameId from the URL here and pass it to the chessGame component as a prop.
+    // Obtenga el gameId de la dirección URL aquí y pásándolo al componente chessGame como apoyo.
    // const domainName = 'https://ajedrez-front.herokuapp.com/'
     const domainName = 'http://localhost:3001'
     const color = React.useContext(ColorContext)
@@ -278,9 +257,6 @@ const ChessGameWrapper = (props) => {
                 setUserName(opponentUserName)
                 didJoinGame(true) 
             } else {
-                // in chessGame, pass opponentUserName as a prop and label it as the enemy. 
-                // in chessGame, use reactContext to get your own userName
-                // socket.emit('myUserName')
                 socket.emit('request username', gameid)
             }
         })

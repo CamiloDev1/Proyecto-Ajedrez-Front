@@ -2,20 +2,18 @@ import React from 'react'
 import { useParams } from 'react-router-dom'
 const socket  = require('../connection/socket').socket
 
-/**
- * 'Join game' is where we actually join the game room. 
- */
+
 
 
 const JoinGameRoom = (gameid, userName, isCreator) => {
     /**
-     * For this browser instance, we want 
-     * to join it to a gameRoom. For now
-     * assume that the game room exists 
-     * on the backend. 
-     *  
-     * 
-     * TODO: handle the case when the game room doesn't exist. 
+     * Para esta instancia del explorador, queremos
+     * para unirlo a un gameRoom. Por ahora
+     * Supongamos que existe la sala de juegos
+     * en el backend.
+     *
+     *
+     * TODO: handle el caso cuando la sala de juegos no existe.
      */
     const idData = {
         gameId : gameid,
@@ -29,8 +27,8 @@ const JoinGameRoom = (gameid, userName, isCreator) => {
   
 const JoinGame = (props) => {
     /**
-     * Extract the 'gameId' from the URL. 
-     * the 'gameId' is the gameRoom ID. 
+     * Extraiga el 'gameId' de la URL.
+     * el 'gameId' es el ID de gameRoom.
      */
     const { gameid } = useParams()
     JoinGameRoom(gameid, props.userName, props.isCreator)

@@ -14,8 +14,6 @@ const Piece = (props) => {
     const thisBlackKingInCheck = props.id === "bk1" && props.blackKingInCheck
 
 
-    // console.log("this piece ID:" + props.thisPieceTargetId)
-    // console.log("dragged piece ID:" + props.draggedPieceTargetId)
     return <Image image={image}
          x = {props.x - 90}
          y = {props.y - 90}

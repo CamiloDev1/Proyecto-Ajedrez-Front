@@ -8,9 +8,9 @@ class ChessPiece {
     }
 
     setSquare(newSquare) {
-        // set the square this piece is sitting top of. 
-        // on any given piece (on the board), there will always be a piece on top of it. 
-        // console.log(newSquare)
+        // establecer el cuadrado de esta pieza está sentado en la parte superior de.
+        // en cualquier pieza dada (en el tablero), siempre habrá una pieza encima de ella.
+
         if (newSquare === undefined) {
             this.squareThisPieceIsOn = newSquare
             return 
@@ -24,7 +24,6 @@ class ChessPiece {
         const isNewSquareDifferent = this.squareThisPieceIsOn.x != newSquare.x || this.squareThisPieceIsOn.y != newSquare.y
 
         if (isNewSquareDifferent) {
-            // console.log("set")
             this.squareThisPieceIsOn = newSquare
             newSquare.setPiece(this)
         }
