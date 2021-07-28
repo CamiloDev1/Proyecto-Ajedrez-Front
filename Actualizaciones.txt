@@ -1,1 +1,3 @@
 Actualizacion a configuracion a modo local
+Actualizacion de estilos 1.1
+
