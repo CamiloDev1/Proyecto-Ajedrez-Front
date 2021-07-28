@@ -54,18 +54,18 @@ class CreateNewGame extends React.Component {
             {
                 this.state.didGetUserName ? 
 
-                <Redirect to = {"/game/" + this.state.gameId}><button className="btn btn-success" style = {{marginLeft: String((window.innerWidth / 2) - 60) + "px", width: "120px"}}>Start Game</button></Redirect>
+                <Redirect to = {"/game/" + this.state.gameId}><button className="btn btn-success" style = {{marginLeft: String((window.innerWidth / 2) - 60) + "px", width: "120px",backgroundColor: "darkred", color: "yellow"}}>Continuar</button></Redirect>
 
             :
-               <div>
-                    <h1 style={{textAlign: "center", marginTop: String((window.innerHeight / 3)) + "px"}}>Your Username:</h1>
+               <div style={{backgroundColor: "darkred"}}>
+                    <h1 style={{textAlign: "center",backgroundColor: "darkred", color: "yellow", marginTop: String((window.innerHeight / 3)) + "px"}}>Ingresa tu nombre:</h1>
 
-                    <input style={{marginLeft: String((window.innerWidth / 2) - 120) + "px", width: "240px", marginTop: "62px"}} 
+                    <input style={{marginLeft: String((window.innerWidth / 2) - 120) + "px", width: "240px", marginTop: "62px", backgroundColor: "gray", color: "yellow"}}
                            ref = {this.textArea}
                            onInput = {this.typingUserName}></input>
-                           
-                    <button className="btn btn-primary" 
-                        style = {{marginLeft: String((window.innerWidth / 2) - 60) + "px", width: "120px", marginTop: "62px"}} 
+
+                    <button className="btn btn-primary"  //este es el boton del primer jugador
+                        style = {{marginLeft: String((window.innerWidth / 2) - 60) + "px", width: "120px", marginTop: "62px",backgroundColor: "yellow", color: "black"}}
                         disabled = {!(this.state.inputText.length > 0)} 
                         onClick = {() => {
                             // When the 'Submit' button gets pressed from the username screen,
@@ -77,7 +77,7 @@ class CreateNewGame extends React.Component {
                                 didGetUserName: true
                             })
                             this.send()
-                        }}>Submit</button>
+                        }}>Jugar</button>
                 </div>
             }
             </React.Fragment>)

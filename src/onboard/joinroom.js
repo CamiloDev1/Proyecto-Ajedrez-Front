@@ -13,9 +13,11 @@ class JoinRoom extends React.Component {
         inputText: ""
     }
 
+
     constructor(props) {
         super(props);
         this.textArea = React.createRef();
+
     }
 
     typingUserName = () => {
@@ -38,15 +40,16 @@ class JoinRoom extends React.Component {
                     <ChessGame myUserName = {this.state.inputText}/>
                 </React.Fragment>
             :
-               <div>
-                    <h1 style={{textAlign: "center", marginTop: String((window.innerHeight / 3)) + "px"}}>Your Username:</h1>
+                    //Pagina de inicio del oponente
+               <div style={{backgroundColor: "darkred"}}>
+                    <h1 style={{textAlign: "center",color: "yellow", marginTop: String((window.innerHeight / 3)) + "px"}}>Ingresa tu nombre:</h1>
 
-                    <input style={{marginLeft: String((window.innerWidth / 2) - 120) + "px", width: "240px", marginTop: "62px"}} 
+                    <input style={{marginLeft: String((window.innerWidth / 2) - 120) + "px", width: "240px", marginTop: "62px", backgroundColor: "gray", color: "yellow"}}
                            ref = {this.textArea}
                            onInput = {this.typingUserName}></input>
-                           
-                    <button className="btn btn-primary" 
-                        style = {{marginLeft: String((window.innerWidth / 2) - 60) + "px", width: "120px", marginTop: "62px"}} 
+
+                    <button className="btn btn-primary"  //Este es el boton del oponente
+                        style = {{marginLeft: String((window.innerWidth / 2) - 60) + "px", width: "120px", marginTop: "62px",backgroundColor: "yellow", color: "black"}}
                         disabled = {!(this.state.inputText.length > 0)} 
                         onClick = {() => {
                             // When the 'Submit' button gets pressed from the username screen,
@@ -55,7 +58,7 @@ class JoinRoom extends React.Component {
                             this.setState({
                                 didGetUserName: true
                             })
-                        }}>Iniciar</button>
+                        }}>Continuar</button>
                 </div>
             }
             </React.Fragment>)

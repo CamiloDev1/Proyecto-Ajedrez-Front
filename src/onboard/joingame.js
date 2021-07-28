@@ -33,7 +33,8 @@ const JoinGame = (props) => {
      */
     const { gameid } = useParams()
     JoinGameRoom(gameid, props.userName, props.isCreator)
-    return <div>
+    return <div style={{backgroundColor: "darkred",color:"yellow", textAlign: "center", marginTop: "100px"}}>
+
         <h1>Hola {props.userName}, vamos a jugar</h1>
     </div>
 }

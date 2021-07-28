@@ -1,3 +1,4 @@
+import swal from 'sweetalert';
 import React from 'react'
 import Game from '../model/chess'
 import Square from '../model/square'
@@ -8,8 +9,7 @@ import chessMove from '../assets/moveSoundEffect.mp3'
 import Piece from './piece'
 import piecemap from './piecemap'
 import { useParams } from 'react-router-dom'
-import { ColorContext } from '../../context/colorcontext' 
-import VideoChatApp from '../../connection/videochat'
+import { ColorContext } from '../../context/colorcontext'
 const socket  = require('../../connection/socket').socket
 
 
@@ -108,9 +108,9 @@ class ChessGame extends React.Component {
         })
 
         if (blackCheckmated) {
-            alert("WHITE WON BY CHECKMATE!")
+            swal("Fin del juego", "Las piezas blancas ganan", "success");
         } else if (whiteCheckmated) {
-            alert("BLACK WON BY CHECKMATE!")
+            swal("Fin del juego", "Las piezas negras ganan", "success");
         }
     }
 
@@ -306,19 +306,14 @@ const ChessGameWrapper = (props) => {
     return (
       <React.Fragment>
         {opponentDidJoinTheGame ? (
-          <div>
+          <div style={{backgroundColor: "darkred",color:"yellow", textAlign: "center", marginTop: "100px", width: "120px"}}>
             <h4> Opponent: {opponentUserName} </h4>
             <div style={{ display: "flex" }}>
-              <ChessGame
+              <ChessGame style={{backgroundColor: "darkred"}}
                 playAudio={play}
                 gameId={gameid}
                 color={color.didRedirect}
-              />
-              <VideoChatApp
-                mySocketId={socket.id}
-                opponentSocketId={opponentSocketId}
-                myUserName={props.myUserName}
-                opponentUserName={opponentUserName}
+
               />
             </div>
             <h4> You: {props.myUserName} </h4>
@@ -328,18 +323,18 @@ const ChessGameWrapper = (props) => {
             <h1 style={{ textAlign: "center", marginTop: "200px" }}> :( </h1>
           </div>
         ) : (
-          <div>
+          <div style={{backgroundColor: "darkred"}}>
             <h1
               style={{
-                textAlign: "center",
+                  backgroundColor: "darkred", textAlign: "center",color: "yellow",
                 marginTop: String(window.innerHeight / 8) + "px",
               }}
-            >
-              Hey <strong>{props.myUserName}</strong>, copy and paste the URL
-              below to send to your friend:
+             >
+              Bienvenido <strong>{props.myUserName}</strong>, usa el siguiente link para enviarselo a tu oponente
+
             </h1>
             <textarea
-              style={{ marginLeft: String((window.innerWidth / 2) - 290) + "px", marginTop: "30" + "px", width: "580px", height: "30px"}}
+              style={{ marginLeft: String((window.innerWidth / 2) - 290) + "px", marginTop: "30" + "px", width: "580px", height: "30px",backgroundColor: "gray",color:"yellow"}}
               onFocus={(event) => {
                   console.log('sd')
                   event.target.select()
@@ -349,9 +344,9 @@ const ChessGameWrapper = (props) => {
               </textarea>
             <br></br>
 
-            <h1 style={{ textAlign: "center", marginTop: "100px" }}>
+            <h1 style={{backgroundColor: "darkred",color:"yellow", textAlign: "center", marginTop: "100px" }}>
               {" "}
-              Waiting for other opponent to join the game...{" "}
+              Esperando un oponente...{" "}
             </h1>
           </div>
         )}
