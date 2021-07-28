@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="c4489bdd-d406-40c3-a421-40f05ad11e15" name="Default Changelist" comment="Estilos de inicio1.1">
+      <change beforePath="$PROJECT_DIR$/Actualizaciones.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Actualizaciones.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/chess/ui/chessgame.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/chess/ui/chessgame.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/onboard/joingame.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/onboard/joingame.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1vsyCrd3KMbUWpClxuI4yUauF4m" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_interpreter_path" value="node" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="settings.nodejs" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ferfe\WebstormProjects\Proyecto-Ajedrez-Front\src\chess\assets" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c4489bdd-d406-40c3-a421-40f05ad11e15" name="Default Changelist" comment="" />
+      <created>1627364967374</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1627364967374</updated>
+      <workItem from="1627364971341" duration="20000" />
+      <workItem from="1627365020395" duration="4006000" />
+      <workItem from="1627447403628" duration="1271000" />
+      <workItem from="1627448697627" duration="6292000" />
+      <workItem from="1627491762874" duration="9542000" />
+    </task>
+    <task id="LOCAL-00001" summary="Modo local">
+      <created>1627449886223</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1627449886223</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Estilos de inicio1">
+      <created>1627496191046</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1627496191046</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Estilos de inicio1.1">
+      <created>1627496811118</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1627496811118</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Modo local" />
+    <MESSAGE value="Estilos de inicio1" />
+    <MESSAGE value="Estilos de inicio1.1" />
+    <option name="LAST_COMMIT_MESSAGE" value="Estilos de inicio1.1" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
